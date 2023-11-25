@@ -1,78 +1,68 @@
-#include<stdio.h>
-#include<conio.h>
-int main()
-{
-	char G;
-	int m,M,t=0,g,NC=0,NCT=0,T=0,C=0,CC=0,c,O,o,S,si,count=0,COUNT=0;
-	float gi,ci,n,nc,sum=0,SUM=0,SUMmin=0,gpa,sgpa,Ssgpa=0,asgpa,cgpa;
-	printf("What do you want to calculate?\n");
-	printf("1)GPA-Grade Point Average\n");
-	printf("2)SGPA-Semester Grade Point Average\n");
-	printf("3)CGPA-Cumulative Grade Point Average\n\n");
-	printf("Enter your choice....");
-	scanf("%d",&O);
-	if(O==1)
-	{
-		printf("\n\n__FOR FINDING GPA__\nEnter the number of Courses:");
-		scanf("%f",&n);
-		printf("Enter each grade:\n");
-		for(gi=1;gi<= n;gi++)
-		{
-			scanf("%c",&G);
-			if(G=='S')
-			{
-				g=10;
-				sum=sum+ g;	
-			}
-			else if(G=='A')
-			{
-				g=9;
-				sum=sum+ g	;
-			}
-			else if(G=='B')
-			{
-				g=8;
-				sum=sum+g	;
-			}
-			else if(G=='C')
-			{
-				g=7;
-				sum=sum+g	;
-			}
-			else if(G=='D')
-			{
-				g=6;
-				sum=sum+g;
-			}
-			else if(G=='R')
-			{
-				printf("(WRITE SUPPLEMENTARY TO PROCEED........)\n");
-				g=6;
-				sum=sum+g;
-				count++;
-			}
-		}
-		gpa= sum/n;
-		if (count==0)
-		{
-			printf("\n\nNo. of BACKLOGS = %d",count);
-			printf("\n\n\n\n\n\nYour GPA is %f\n\n\n\n\n\n\n\n\n\n\n",gpa);
-		}
-		else if(count!=0)
-		{
-			printf("\n\nNo. of BACKLOGS = %d",count);
-			printf("\n\n\n\n\n\nYour MINIMUM possible GPA is %f (After passing SUPPLEMENTARY)",gpa);
-			printf("\n\n\nClick '0' to know your MAXIMUM possible GPA (After passing SUPPLEMENTARY)\n");
-			scanf("%d",&m);
-			if(m== 0)
-			{
-				g=10;
-				sum= sum+ (g-6)*count;
-				gpa= sum/n;
-				printf("\n\n\n\nYour MAXIMUM possible GPA is %f (After passing SUPPLEMENTARY)\n\n\n\n\n\n\n\n",gpa);
-			}
-		}
-	}
+#include <stdio.h>
+
+int main(void) {
+    char G;
+    int m, M, t = 0, g, NC = 0, NCT = 0, T = 0, C = 0, CC = 0, c, O, S, si, count = 0, COUNT = 0;
+    float gi, ci, n, nc, sum = 0, SUM = 0, SUMmin = 0, gpa, sgpa, Ssgpa = 0, asgpa, cgpa;
+
+    printf("What do you want to calculate?\n");
+    printf("1) GPA-Grade Point Average\n");
+    printf("2) SGPA-Semester Grade Point Average\n");
+    printf("3) CGPA-Cumulative Grade Point Average\n\n");
+    printf("Enter your choice....");
+    scanf("%d", &O);
+
+    if (O == 1) {
+        printf("\n\n__FOR FINDING GPA__\nEnter the number of Courses:");
+        scanf("%f", &n);
+
+        count = 0;
+
+        printf("Enter each grade:\n");
+        for (gi = 1; gi <= 2*n; gi++) {
+            scanf(" %c", &G);
+
+            if (G == 'S') {
+                g = 10;
+                sum = sum + g;
+            } else if (G == 'A') {
+                g = 9;
+                sum = sum + g;
+            } else if (G == 'B') {
+                g = 8;
+                sum = sum + g;
+            } else if (G == 'C') {
+                g = 7;
+                sum = sum + g;
+            } else if (G == 'D') {
+                g = 6;
+                sum = sum + g;
+            } else if (G == 'R') {
+                printf("(WRITE SUPPLEMENTARY TO PROCEED........)\n");
+                g = 6;
+                sum = sum + g;
+                count++;
+            }
+        }
+
+        gpa = sum / n;
+
+        if (count == 0) {
+            printf("\n\nNo. of BACKLOGS = %d", count);
+            printf("\n\n\n\n\n\n\nYour GPA is %f\n\n\n\n\n\n\n\n", gpa);
+        } else if (count != 0) {
+            printf("\n\nNo. of BACKLOGS = %d", count);
+            printf("\n\n\n\n\n\nYour MINIMUM possible GPA is %f (After passing SUPPLEMENTARY)", gpa);
+            printf("\n\n\nClick '0' to know your MAXIMUM possible GPA (After passing SUPPLEMENTARY)\n");
+            scanf("%d", &m);
+            if (m == 0) {
+                g = 10;
+                sum = sum + (g - 6) * count;
+                gpa = sum / n;
+                printf("\n\n\n\nYour MAXIMUM possible GPA is %f (After passing SUPPLEMENTARY)\n\n\n\n\n\n\n\n", gpa);
+            }
+        }
+    } 
 	else if(O==2)
 	{
 		printf("\n\n\n__FOR FINDING SGPA__\nEnter the number of types of Credits:");
