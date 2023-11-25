@@ -16,7 +16,7 @@ int main()
 		printf("\n\n__FOR FINDING GPA__\nEnter the number of Courses:");
 		scanf("%f",&n);
 		printf("Enter each grade:\n");
-		for(gi=1;gi<= 2*n;gi++)
+		for(gi=1;gi<= n;gi++)
 		{
 			scanf("%c",&G);
 			if(G=='S')
